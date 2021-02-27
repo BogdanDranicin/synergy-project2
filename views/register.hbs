@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+<div>
+
+    <form action="/auth/register" method="POST" class="form">
+        <div class="reg">
+            <h1>Регистрация</h1>
+            <div class="input-form">
+                <label for="name"></label>
+                <input type="text" placeholder="Имя" id="name" name="name" required>
+            </div>
+
+            <div class="input-form">
+                <label for="lastname"></label>
+                <input type="text" placeholder="Фамилия" id="lastname" name="lastname" required>
+            </div>
+
+            <div class="input-form">
+                <label for="patronymic"></label>
+                <input type="text" placeholder="Отчество" id="patronymic" name="patronymic" required>
+            </div>
+
+
+            <div class="input-form">
+                <label for="email"></label>
+                <input type="email" placeholder="Email" id="email" name="email" required>
+            </div>
+
+
+            <div class="input-form">
+                <label for="password"></label>
+                <input type="password" placeholder="Пароль" id="password" name="password" required>
+            </div>
+
+            <div class="input-form">
+                <label for="passwordConfirm"></label>
+                <input type="password" placeholder="Подтвердите пароль" id="passwordConfirm" name="passwordConfirm" required>
+            </div>
+
+
+
+
+
+
+
+            <h2>Паспортные данные:</h2>
+
+            <div class="input-form">
+                <label for="series"></label>
+                <input type="text" placeholder="Серия" id="series" name="series" required>
+            </div>
+            <div class="input-form">
+                <label for="number"></label>
+                <input type="text" placeholder="Номер" id="number" name="number" required>
+            </div>
+            <div class="input-form">
+                <button type="submit" class="btn-2">Зарегистрироваться</button>
+            </div>
+
+            <a href="/login" class="link-a">Уже есть аккаунт?</a>
+        </div>
+    </form>
+</div>
+<div class="error">
+    {{#if message }}
+        <h4>{{message}}</h4>
+    {{/if}}
+</div>
+</body>
+</html>
