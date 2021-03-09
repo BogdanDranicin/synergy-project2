@@ -2,7 +2,7 @@ const mysql = require("mysql");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
-const bd = mysql.createConnection({
+const db = mysql.createConnection({
     host: process.env.DATABASE_HOST,
     user: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
@@ -19,7 +19,7 @@ exports.login = async (req, res) => {
             })
         }
 
-        bd.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
+        db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
             console.log(results);
             if( !results || !(await bcrypt.compare(password, results[0].password)) ) {
                 res.status(401).render('login', {
@@ -29,7 +29,7 @@ exports.login = async (req, res) => {
                 const id = results[0].id;
 
                 const token = jwt.sign({ id }, process.env.JWT_SECRET, {
-                    expiresIN: process.env.JWT_EXPIRES_IN
+//                     expiresIN: process.env.JWT_EXPIRES_IN
                 });
                 console.log("The token is: " + token);
 
